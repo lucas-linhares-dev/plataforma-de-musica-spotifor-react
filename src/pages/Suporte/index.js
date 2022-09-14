@@ -1,23 +1,13 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import Header from "../../header";
+import Footer from "../../footer";
 
 import("../projeto-plataforma-de-musica-spotifor/css/suporte.css")
-import("../projeto-plataforma-de-musica-spotifor/css/header.css")
-import("../projeto-plataforma-de-musica-spotifor/css/footer.css")
 
 function suporte(){
     return(
         <div>
-            <header>
-                <h1>Spotifor</h1>
-                <nav>
-                    <ul>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/suporte">Suporte</Link></li>
-                        <li><Link to="/cadastro">Cadastre-se</Link></li>
-                    </ul>
-                </nav>
-            </header>
+            <Header/>
             <main>
                 <h2>Perguntas mais frequentes</h2>
                 <table>
@@ -72,9 +62,7 @@ function suporte(){
                     </tbody>
                 </table>
             </main>
-            <footer>
-                <p>Todos os direitos reservados</p>
-            </footer>
+            <Footer/>
         </div>
     )
 }
