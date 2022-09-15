@@ -4,7 +4,7 @@ import Footer from "../../footer";
 
 import("../projeto-plataforma-de-musica-spotifor/css/cadastro.css")
 
-function cadastro(){
+function Cadastro(){
     return(
         <div>
             <Header/>
@@ -27,4 +27,4 @@ function cadastro(){
     )
 }
 
-export default cadastro;
+export default Cadastro;
