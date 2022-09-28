@@ -47,12 +47,23 @@ function Cadastro(){
     function cadastrar(e){
          if(confirmacaoEmail != email){
             setError("Ops! Seu E-mail de confirmação é inválido.")
+            window.scrollTo(0,0)
          }
          else if(confirmacaoSenha != senha){
             setError("Ops! Sua senha de confirmação é inválida.")
+            window.scrollTo(0,0)
          }
          else if(nome != "" && idade != "" && email != "" && senha != "" && confirmacaoEmail != "" && confirmacaoSenha != "" ){
+
             alert("Cadastro efetuado com sucesso.")
+            window.scrollTo(0,0)
+            
+            let nomeAutenticado = nome
+            let idadeAutenticado = idade
+            let emailAutenticado = email
+            let senhaAutenticado = senha
+            let valoresFormulario = [nomeAutenticado, idadeAutenticado, emailAutenticado, senhaAutenticado]
+
             setError("")
             setNome("")
             setEmail("")
@@ -63,6 +74,7 @@ function Cadastro(){
          }
          else{
             setError("Ops! Você esqueceu de preencher algum campo.")
+            window.scrollTo(0,0)
          }
 
          e.preventDefault();
