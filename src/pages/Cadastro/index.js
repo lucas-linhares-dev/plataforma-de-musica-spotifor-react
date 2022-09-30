@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Header from "../../header";
 import Footer from "../../footer";
 
-import("../projeto-plataforma-de-musica-spotifor/css/cadastro.css")
+import "../../css/cadastro.css"
 
 
 function Cadastro(){
@@ -58,11 +58,9 @@ function Cadastro(){
             alert("Cadastro efetuado com sucesso.")
             window.scrollTo(0,0)
             
-            let nomeAutenticado = nome
-            let idadeAutenticado = idade
-            let emailAutenticado = email
-            let senhaAutenticado = senha
-            let valoresFormulario = [nomeAutenticado, idadeAutenticado, emailAutenticado, senhaAutenticado]
+            const usuario = { nome, idade, email, senha }
+
+            
 
             setError("")
             setNome("")

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Header from "../../header";
 import Footer from "../../footer";
 
-import("../projeto-plataforma-de-musica-spotifor/css/suporte.css")
+import "../../css/suporte.css"
 
 function Suporte(){
 

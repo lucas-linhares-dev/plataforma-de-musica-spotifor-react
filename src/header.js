@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
-import("./pages/projeto-plataforma-de-musica-spotifor/css/header.css")
+import("./css/header.css")
 
 function Header(){
     return(

@@ -1,6 +1,6 @@
 import React from "react";
 
-import("./pages/projeto-plataforma-de-musica-spotifor/css/footer.css")
+import("./css/footer.css")
 
 function Footer(){
     return(
