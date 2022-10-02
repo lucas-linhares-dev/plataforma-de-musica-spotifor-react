@@ -84,9 +84,9 @@ function Cadastro(){
     return(
         <div>
             <Header/>
-            <main>
+            <main className="cadastro-main">
                 <h2>Faça seu cadastro!</h2>
-                {error && <h4>{error}</h4>}
+                {error && <h4 className="msg-erro">{error}</h4>}
                 <form action="POST" onSubmit={cadastrar}>
                     <label for="nome">Nome completo</label>
                     <input type="text" name="nome" placeholder="Exemplo: João Pedro da Silva" value = {nome} onChange={atualizaNome}/>

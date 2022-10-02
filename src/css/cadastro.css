@@ -1,10 +1,10 @@
-main{
-    width: 30%;
+.cadastro-main{
+    width: 40%;
     margin: auto;
 }
-h2{
-    font-size: 35px;
-    margin-bottom:10%;
+.cadastro-main h2{
+    font-size: 30px;
+    margin-bottom: 15%;
 }
 label,input{
     display: block;
@@ -37,4 +37,7 @@ input{
 .btn-cadastrar:hover{
     background-color: rgb(255, 255, 255);
     transform: translateY(-2px);
+}
+.msg-erro{
+    color:red;
 }

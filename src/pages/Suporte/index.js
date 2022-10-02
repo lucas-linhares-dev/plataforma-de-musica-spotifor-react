@@ -43,7 +43,7 @@ function Suporte(){
     return(
         <div>
             <Header/>
-            <main>
+            <main className='suporte-main'>
                 <h2>Perguntas mais frequentes</h2>
                 <table>
                     <thead>
