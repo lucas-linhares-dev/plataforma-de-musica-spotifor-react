@@ -1,13 +1,13 @@
 .playlist-main{
-    width: 70%;
+    width: 80%;
     margin-left:20%;
 }
 .card-playlist{
-    width: 35%;
-    height: 35%;
+    width: 30%;
+    height: 30%;
     display: inline-block;
     float:left;
-    margin-top:12%;
+    margin-top:9%;
 }
 .card-playlist img{
     width: 100%;
@@ -16,15 +16,12 @@
 .section-musicas-playlist{
    display: inline-block;
    width: 35%;
-   margin-top:10%;
-   margin-left:7%;
+   margin-top:7%;
+   margin-left:5%;
 }
 .section-musicas-playlist li{
     margin-bottom:10%;
-    transition: all linear .2s;
-}
-.section-musicas-playlist li:hover{
-    background-color: rgb(75, 75, 75);
+    border-bottom: solid 1px rgb(126, 126, 126);
 }
 h2{
     text-align: center;
@@ -36,6 +33,7 @@ h2{
 .artista{
     color:rgb(172, 172, 172);
 }
-.musica{
-    border-bottom: solid 1px rgb(88, 88, 88);
+.section-musicas-playlist li audio{
+    margin-bottom: 5%;
 }
+

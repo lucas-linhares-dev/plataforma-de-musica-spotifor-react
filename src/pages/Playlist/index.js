@@ -37,17 +37,19 @@ function Playlist(){
             id: 5,
             nome: 'Fingerprint',
             artista: 'Lane 8',
-            audio: './audios/Lane 8 - Figerprint.mp3'
+            audio: './audios/Lane 8 - Fingerprint.mp3'
         },
     ]
-    
 
     const resultado = musicas.map( (m) => {
         return(
-            <li className='musica'>
-                <h4 className='nome'>{m.nome}</h4>
-                <p className='artista'>{m.artista}</p>
-            </li>
+            <div>
+                <li className='musica'>
+                    <h4 className='nome'>{m.nome}</h4>
+                    <p className='artista'>{m.artista}</p>
+                    <audio src={m.audio} className='audio' controls></audio>
+                </li>
+            </div>
         )
     })
 
