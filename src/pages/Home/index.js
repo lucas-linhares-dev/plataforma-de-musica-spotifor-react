@@ -19,22 +19,22 @@ function Home() {
             capa: './imagens/playlist-pop.jpg'
         },
         {
-            id: 2,
+            id: 3,
             nome: 'Rap',
             capa: './imagens/playlist-rap.jpg'
         },
         {
-            id: 3,
+            id: 4,
             nome: 'Clássicos do reggae',
             capa: './imagens/playlist-reggae.jpg'
         },
         {
-            id: 4,
+            id: 5,
             nome: 'Rock forever',
             capa: './imagens/playlist-rock.jpg'
         },
         {
-            id:5,
+            id:6,
             nome:"O melhor da MPB",
             capa: './imagens/playlist-mpb.jpg'
         },
