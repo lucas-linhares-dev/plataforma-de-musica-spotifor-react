@@ -1,53 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from "../../header";
 import Footer from "../../footer";
+import axios from 'axios';
 
 import '../../css/playlist.css'
 
 
 function Playlist(){
 
+    const [playlists, setPlaylists] = useState([]);
 
-    const musicas = [
-        {
-            id: 1,
-            nome: 'Companions',
-            artista: 'Amtrac',
-            audio: './audios/Amtrac - Companions.mp3'
-        },
-        {
-            id: 2,
-            nome: 'Madness To Mayhem',
-            artista: 'Amtrac',
-            audio: './audios/Amtrac - Madness To Mayhem.mp3'
-        },
-        {
-            id: 3,
-            nome: 'Atlas',
-            artista: 'Lane 8',
-            audio: './audios/Lane 8 - Atlas.mp3'
-        },
-        {
-            id: 4,
-            nome: 'Brightest Lights feat. POLIÇA',
-            artista: 'Lane 8',
-            audio: './audios/Lane 8 - Brightest Lights feat. POLIÇA.mp3'
-        },
-        {
-            id: 5,
-            nome: 'Fingerprint',
-            artista: 'Lane 8',
-            audio: './audios/Lane 8 - Fingerprint.mp3'
-        },
-    ]
+    useEffect( () => {                                     // Após o componente ser renderizado -- Set nas musicas com os dados da porta
+        axios.get('http://localhost:3001/playlists')
+            .then((resposta) => setPlaylists(resposta.data))
+    },[])
 
-    const resultado = musicas.map( (m) => {
+
+    const resultado = playlists.map( (playlist) => {
         return(
             <div>
                 <li className='musica'>
-                    <h4 className='nome'>{m.nome}</h4>
-                    <p className='artista'>{m.artista}</p>
-                    <audio src={m.audio} className='audio' controls></audio>
+                    <h4 className='nome'>{playlist.nome}</h4>
+                    <p className='artista'>{playlist.musicas.artista}</p>
+                    <audio src={playlist.musicas.audio} className='audio' controls></audio>
                 </li>
             </div>
         )

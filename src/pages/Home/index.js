@@ -1,52 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../header";
 import Footer from "../../footer";
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import "../../css/home.css"
 
 function Home() {
 
-    const playlists = [
-        {
-            id: 1,
-            nome: 'Lofi Hip-Hop',
-            capa: './imagens/playlist-lofi.jpg'
-        },
-        {
-            id: 2,
-            nome: 'Pop',
-            capa: './imagens/playlist-pop.jpg'
-        },
-        {
-            id: 3,
-            nome: 'Rap',
-            capa: './imagens/playlist-rap.jpg'
-        },
-        {
-            id: 4,
-            nome: 'Clássicos do reggae',
-            capa: './imagens/playlist-reggae.jpg'
-        },
-        {
-            id: 5,
-            nome: 'Rock forever',
-            capa: './imagens/playlist-rock.jpg'
-        },
-        {
-            id:6,
-            nome:"O melhor da MPB",
-            capa: './imagens/playlist-mpb.jpg'
-        },
-    ]
+    const [playlists, setPlaylists] = useState([]);
 
-    const resultado = playlists.map( (p) => {
+    useEffect( () => {
+        axios.get('http://localhost:3001/playlists')
+            .then( (resposta) => setPlaylists(resposta.data)) 
+    },[])
+
+    const resultado = playlists.map( (playlist) => {  // to = 'playlist/{playlista.id}'
         return (
             <div className="card">
-                <Link to='/playlist' className="link-imagem-playlist">
-                    <img src = {p.capa} className = "imagem-playlist"></img>
+                <Link to='/playlist' className="link-imagem-playlist"> 
+                    <img src = {playlist.capa} className = "imagem-playlist"></img>
                 </Link>
-                <h3 className="nome-playlist">{p.nome}</h3>
+                <h3 className="nome-playlist">{playlist.nome}</h3>
             </div>
         )
     } );
