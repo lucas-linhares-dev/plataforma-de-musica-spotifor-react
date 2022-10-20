@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import Header from "../../header";
 import Footer from "../../footer";
+import axios from 'axios';
 
 import "../../css/cadastro.css"
+
 
 
 function Login(){
@@ -10,6 +12,7 @@ function Login(){
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
     const [error, setError] = useState("");
+
 
 
     function atualizaEmail(e){
@@ -22,12 +25,35 @@ function Login(){
         setSenha(valorDigitado);
     }
 
+
+
     function entrar(e){
         if(email != "" && senha != ""){
-            alert("Login efetuado com sucesso!")
-            setEmail("")
-            setSenha("")
-            setError("")
+            axios.get(`http://localhost:3001/usuarios?email=${email}`)
+                .then((res) => {
+
+                    const usuario = res.data[0];
+
+                    if(usuario === undefined){
+                        setError("Ops! O Email informado não está cadastrado.")
+                        window.scrollTo(0,0)
+                        return
+                    }
+                    else if(usuario.senha !== senha){
+                        setError("Ops! A senha informada é inválida.")
+                        window.scrollTo(0,0)
+                        return
+                    }
+                    else{
+                        localStorage.setItem('usuarioLogado', JSON.stringify(usuario))
+                        alert("Login efetuado com sucesso!")
+                        setEmail("")
+                        setSenha("")
+                        setError("")
+                        window.location.href = 'http://localhost:3000'
+                    }
+
+                })
         }
         else{
             setError("Ops! Você esqueceu de preencher algum campo.")

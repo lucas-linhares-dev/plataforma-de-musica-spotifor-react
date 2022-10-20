@@ -119,7 +119,11 @@
 
     "usuarios":[
         {
-
+            "id": 1,
+            "nome": "Lucas Linhares",
+            "idade": 22,
+            "email": "lucas@gmail.com",
+            "senha": "123"
         },
         {
 
