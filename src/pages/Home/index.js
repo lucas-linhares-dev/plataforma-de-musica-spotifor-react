@@ -18,8 +18,8 @@ function Home() {
     const resultado = playlists.map( (playlist) => {  // to = 'playlist/{playlista.id}'
         return (
             <div className="card">
-                <Link to='/playlist' className="link-imagem-playlist"> 
-                    <img src = {playlist.capa} className = "imagem-playlist"></img>
+                <Link to={`/playlist/${playlist.id}`} className="link-imagem-playlist"> 
+                    <img src={playlist.capa} className = "imagem-playlist"></img>
                 </Link>
                 <h3 className="nome-playlist">{playlist.nome}</h3>
             </div>
