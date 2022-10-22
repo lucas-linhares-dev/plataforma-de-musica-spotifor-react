@@ -4,7 +4,9 @@ import Home from './pages/Home';
 import Cadastro from './pages/Cadastro';
 import Suporte from './pages/Suporte';
 import Playlist from './pages/Playlist';
-import Login from './pages/Login'
+import Conta from './pages/Conta';
+import Login from './pages/Login';
+import Sair from './pages/Sair'
 import { useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
@@ -19,6 +21,8 @@ function RoutesApp(){
                 <Route path='/suporte' element={ <Suporte/> }/>
                 <Route path={'/playlist/:id'} element={ <Playlist/> }/>\
                 <Route path='/login' element={ <Login/> }/>
+                <Route path='/conta' element={ <Conta/> }/>
+                <Route path='/sair' element={ <Sair/> }/>
             </Routes>
         </BrowserRouter>
     )

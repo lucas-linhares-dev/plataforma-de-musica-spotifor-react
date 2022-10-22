@@ -5,13 +5,18 @@ import Footer from "../../footer";
 import "../../css/cadastro.css"
 
 
-function Cadastro(){
+function Conta(){
 
-    const [nome, setNome] = useState("");
-    const [idade, setIdade] = useState("");
-    const [email, setEmail] = useState("");
+    let usuarioString = localStorage.getItem('usuarioLogado');
+    let usuario = JSON.parse(usuarioString);
+
+
+
+    const [nome, setNome] = useState(usuario.nome);
+    const [idade, setIdade] = useState(usuario.idade);
+    const [email, setEmail] = useState(usuario.email);
     const [confirmacaoEmail, setConfirmacaoEmail] = useState("");
-    const [senha, setSenha] = useState("");
+    const [senha, setSenha] = useState(usuario.senha);
     const [confirmacaoSenha, setConfirmacaoSenha] = useState("");
     const [error, setError] = useState("");
 
@@ -44,7 +49,7 @@ function Cadastro(){
         setConfirmacaoSenha(valorDigitado);
     }
 
-    function cadastrar(e){
+    function alterar(e){
          if(confirmacaoEmail != email){
             setError("Ops! Seu E-mail de confirmação é inválido.")
             window.scrollTo(0,0)
@@ -55,13 +60,17 @@ function Cadastro(){
          }
          else if(nome != "" && idade != "" && email != "" && senha != "" && confirmacaoEmail != "" && confirmacaoSenha != "" ){
 
-            alert("Cadastro efetuado com sucesso.")
+            usuario.nome = nome;
+            usuario.idade = idade;
+            usuario.email = email;
+            usuario.senha = senha;
+
+            localStorage.setItem('usuarioLogado', JSON.stringify(usuario));
+            alert("Conta alterada com sucesso.")
+
             window.scrollTo(0,0)
-            
-            const usuario = { nome, idade, email, senha }
 
             window.location.href = 'http://localhost:3000'
-            
          }
          else{
             setError("Ops! Você esqueceu de preencher algum campo.")
@@ -78,9 +87,9 @@ function Cadastro(){
         <div>
             <Header/>
             <main className="cadastro-main">
-                <h2>Faça seu cadastro!</h2>
+                <h2>Atualize sua conta, {usuario.nome}</h2>
                 {error && <h4 className="msg-erro">{error}</h4>}
-                <form action="POST" onSubmit={cadastrar}>
+                <form action="POST" onSubmit={alterar}>
                     <label for="nome">Nome completo</label>
                     <input type="text" name="nome" placeholder="Exemplo: João Pedro da Silva" value = {nome} onChange={atualizaNome}/>
                     <label for="idade">Idade</label>
@@ -93,7 +102,7 @@ function Cadastro(){
                     <input type="password" name="senha" placeholder="A senha é confidencial!" value = {senha} onChange={atualizaSenha}/>
                     <label for="senha">Confirme sua Senha</label>
                     <input type="password" name="senha" placeholder="A senha é confidencial!" value = {confirmacaoSenha} onChange={atualizaConfirmacaoSenha}/>
-                    <input type="submit" className="btn-cadastrar" value="Cadastrar"/>
+                    <input type="submit" className="btn-cadastrar" value="Alterar"/>
                 </form>
             </main>
             <Footer/>
@@ -101,4 +110,4 @@ function Cadastro(){
     )
 }
 
-export default Cadastro;
+export default Conta;
