@@ -15,6 +15,7 @@ function Header(){
                 <nav>
                     <ul>
                         <li><Link to="/">Playlists</Link></li>
+                        <li><Link to="/musicas">Musicas</Link></li>
                         <li><Link to="/suporte">Suporte</Link></li>
                         { !usuario && <li><Link to="/cadastro">Cadastre-se</Link></li>}
                         { !usuario && <li><Link to="/login">Entrar</Link></li>}

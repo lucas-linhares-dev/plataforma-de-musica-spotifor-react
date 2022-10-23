@@ -3,6 +3,7 @@ import Header from "../../header";
 import Footer from "../../footer";
 
 import "../../css/cadastro.css"
+import axios from "axios";
 
 
 function Conta(){
@@ -64,6 +65,8 @@ function Conta(){
             usuario.idade = idade;
             usuario.email = email;
             usuario.senha = senha;
+
+            axios.put(`http://localhost:3001/usuarios/${usuario.id}`, {nome: nome, idade: idade, email: email, senha: senha})
 
             localStorage.setItem('usuarioLogado', JSON.stringify(usuario));
             alert("Conta alterada com sucesso.")

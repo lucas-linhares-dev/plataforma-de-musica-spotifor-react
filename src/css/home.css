@@ -5,6 +5,13 @@
 .home-main h2{
     font-size: 30px;
 }
+.minhas-playlists{
+    margin-bottom:10%;
+}
+.title-minhas-playlists{
+    margin-top:3%;
+}
+
 .cards{
     width: 100%;
     margin: auto;

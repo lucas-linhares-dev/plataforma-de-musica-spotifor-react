@@ -7,6 +7,8 @@ import Playlist from './pages/Playlist';
 import Conta from './pages/Conta';
 import Login from './pages/Login';
 import Sair from './pages/Sair'
+import Musicas from './pages/Musicas'
+import PlaylistUsuario from './pages/PlaylistUsuario'
 import { useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
@@ -23,6 +25,8 @@ function RoutesApp(){
                 <Route path='/login' element={ <Login/> }/>
                 <Route path='/conta' element={ <Conta/> }/>
                 <Route path='/sair' element={ <Sair/> }/>
+                <Route path='/musicas' element={ <Musicas/> }/>
+                <Route path='/playlist-usuario/:id' element={ <PlaylistUsuario/> }/>
             </Routes>
         </BrowserRouter>
     )
