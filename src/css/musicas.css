@@ -1,8 +1,6 @@
 .musicas{
     width: 80%;
-    display: inline-block;
-    margin-top: 0%;
-    margin-left:5%;
+    margin-left:20%;
 }
 .musicas li{
     margin-bottom:8%;
@@ -13,7 +11,9 @@
 }
 .title-musicas{
     font-size: 33px;
-    margin-right:30%;
+    margin: auto;
+    margin-top:2%;
+    margin-bottom:5%;
 }
 .btn-adicionar{
     color: rgb(255, 255, 255);
@@ -28,7 +28,13 @@
     transition: all .2s linear;
 }
 .btn-adicionar:hover{
-    background-color: rgb(60, 255, 0);
+    background-color: rgb(51, 219, 0);
     transform: translateY(-5px);
+}
+.buscador{
+    width: 50%;
+    margin: auto;
+    margin-bottom:5%;
+    font-size: 20px;
 }
 
