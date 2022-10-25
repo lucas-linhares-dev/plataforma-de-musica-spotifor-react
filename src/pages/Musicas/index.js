@@ -9,9 +9,13 @@ import '../../css/musicas.css'
 
 function Musicas(){
 
-    const usuario = localStorage.getItem('usuarioLogado')
+    let usuarioString = localStorage.getItem('usuarioLogado')
+    let usuarioLogado = JSON.parse(usuarioString) 
+
     const [musicas, setMusicas] = useState([]);
     const [busca, setBusca] = useState('');
+
+    const [musicaAdicionar, setMusicaAdicionar] = useState();
 
     function atualizaBusca(e){
         let valorDigitado = e.target.value;
@@ -27,6 +31,19 @@ function Musicas(){
 
     const musicasFiltradas = musicas
         .filter((musica) => musica.nome.toLowerCase().includes(busca.toLowerCase()));
+
+
+
+    function adicionarMusica(e){
+        let idMusica = e.target.value;
+
+        axios.get(`http://localhost:3001/musicas/${idMusica}`)
+            .then((res) => setMusicaAdicionar(res.data))
+
+        axios.post(`http://localhost:3001/usuario/${usuarioLogado.id}?_embed=playlists/1/_embed=musicas`, musicaAdicionar)
+
+        alert(`Música "${musicaAdicionar.nome}" adicionada com sucesso`) // APARECENDO ALERT REPETIDO PQ A RES DA CHAMADA NAO CHEGOU AINDA
+    }
         
         
     const resultado = musicasFiltradas?.map( (m) => { 
@@ -36,7 +53,7 @@ function Musicas(){
                     <h4 className='nome'>{m.nome}</h4>
                     <p className='artista'>{m.artista}</p>
                     <audio src={m.audio} className='audio' controls></audio>
-                    {usuario && <button className='btn-adicionar'>+ Minha playlist</button>}
+                    {usuarioString && <button className='btn-adicionar' onClick={adicionarMusica} value={m.id}>+ Minha playlist</button>}
                 </li>
             </div>
         )

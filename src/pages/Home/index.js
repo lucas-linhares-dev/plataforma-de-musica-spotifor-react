@@ -8,7 +8,8 @@ import "../../css/home.css"
 
 function Home() {
 
-    let usuarioLogado = localStorage.getItem('usuarioLogado')
+    let usuarioString = localStorage.getItem('usuarioLogado')
+    let usuarioLogado = JSON.parse(usuarioString);
 
     const [playlists, setPlaylists] = useState([]);
     const [usuario, setUsuario] = useState();
@@ -19,15 +20,17 @@ function Home() {
     },[])
 
     useEffect( () => {
-        axios.get('http://localhost:3001/usuarios/1') // depois pegar usuario dinamicamente
+        if(usuarioLogado != null){
+            axios.get(`http://localhost:3001/usuarios/${usuarioLogado.id}`) // depois pegar usuario dinamicamente
             .then( (resposta) => setUsuario(resposta.data)) 
+        }
     },[])
 
 
     const minhasPlaylists = usuario?.playlists?.map( (playlist) => {  // to = 'playlist/{playlista.id}'
         return (
             <div className="card">
-                <Link to={`/playlist-usuario/${playlist.id}`} className="link-imagem-playlist"> 
+                <Link to={`/usuarios/${usuarioLogado.id}`} className="link-imagem-playlist"> 
                     <img src={playlist.capa} className = "imagem-playlist"></img>
                 </Link>
                 <h3 className="nome-playlist">{playlist.nome}</h3>
@@ -51,10 +54,9 @@ function Home() {
     <div>
         <Header/>
         <main className="home-main">
-            { usuarioLogado && <section className="minhas-playlists">
+            { usuarioString && <section className="minhas-playlists">
                 <h2 className="title-minhas-playlists">Minhas Playlists</h2>
                 {minhasPlaylists}
-                <button>Criar Playlist</button>
             </section>}
             <section className = "playlists">
                 <h2 className="title-playlists">Playlists</h2>

@@ -121,6 +121,27 @@
       "idade": 22,
       "email": "lucas@gmail.com",
       "senha": "123",
+      "playlists":[
+        {
+          "id": 1,
+          "nome": "Playlist Lucas",
+          "capa": "/imagens/playlist-lofi.jpg",
+          "musicas": [
+            {
+              "id": 9,
+              "nome": "Rasta Courage",
+              "artista": "Soja",
+              "audio": "/audios/Rasta Courage - Soja.mp3"
+            },
+            {
+              "id": 10,
+              "nome": "True Love",
+              "artista": "Soja",
+              "audio": "/audios/True Love - Soja.mp3"
+            }
+          ]
+        }
+      ],
       "id": 1
     },
     {
@@ -128,7 +149,16 @@
       "idade": "18",
       "email": "mateus@gmail.com",
       "senha": "123",
-      "playlists": [],
+      "playlists": [
+        {
+        "id": 1,
+        "nome": "Playlist Mateus",
+        "capa": "/imagens/playlist-lofi.jpg",
+        "musicas": [
+
+          ]
+        }
+      ],
       "id": 2
     },
     {
@@ -229,5 +259,49 @@
       "artista": "Charlie Brown",
       "audio": "./audios/Como Tudo Deve Ser - Charlie Brown.mp3"
     }
+  ],
+
+  "playlistsUsuarios": [
+    {
+        "id": 1,
+        "idUsuario": 1,
+        "nome": "Playlist Lucas",
+        "capa": "/imagens/playlist-lofi.jpg",
+        "musicas": [
+          {
+            "id": 9,
+            "nome": "Rasta Courage",
+            "artista": "Soja",
+            "audio": "/audios/Rasta Courage - Soja.mp3"
+          },
+          {
+            "id": 10,
+            "nome": "True Love",
+            "artista": "Soja",
+            "audio": "/audios/True Love - Soja.mp3"
+          }
+        ]
+    },
+    {
+      "id": 2,
+      "idUsuario": 2,
+      "nome": "Playlist Mateus",
+      "capa":"/imagens/playlist-mpb.jpg",
+      "musicas": [
+        {
+          "id": 11,
+          "nome": "Waiting In Vain",
+          "artista": "Bob Marley",
+          "audio": "./audios/Waiting In Vain - Bob Marley.mp3"
+        },
+        {
+          "id": 12,
+          "nome": "Como Tudo Deve Ser",
+          "artista": "Charlie Brown",
+          "audio": "./audios/Como Tudo Deve Ser - Charlie Brown.mp3"
+        }
+      ]
+    }
+
   ]
 }

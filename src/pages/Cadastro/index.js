@@ -59,7 +59,7 @@ function Cadastro(){
             alert("Cadastro efetuado com sucesso.")
             window.scrollTo(0,0)
             
-            const usuario = { nome: nome, idade: idade, email: email, senha: senha, playlists: [] }
+            const usuario = {nome: nome, idade: idade, email: email, senha: senha, playlists: [] }
             axios.post('http://localhost:3001/usuarios', usuario)
             window.location.href = 'http://localhost:3000/login'
             

@@ -1,0 +1,33 @@
+.btn-excluir{
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: inline-block;
+    float: right;
+    width: 15%;
+    height: 50px;
+    background-color: transparent;
+    transition: all .2s linear;
+}
+.btn-excluir:hover{
+    background-color: rgb(219, 0, 0);
+    transform: translateY(-5px);
+}
+.playlist-usuario-main{
+    width: 90%;
+    margin: auto;
+    margin-left: 20%
+}
+.section-usuario-musicas-playlist{
+    display: inline-block;
+    margin-top:7%;
+    margin-left:5%;
+    width: 45%;
+}
+.section-usuario-musicas-playlist li{
+    margin-bottom:10%;
+    border-bottom: solid 1px rgb(126, 126, 126);
+}
+.section-usuario-musicas-playlist li audio{
+    margin-bottom: 5%;
+}

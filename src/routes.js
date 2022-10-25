@@ -26,7 +26,7 @@ function RoutesApp(){
                 <Route path='/conta' element={ <Conta/> }/>
                 <Route path='/sair' element={ <Sair/> }/>
                 <Route path='/musicas' element={ <Musicas/> }/>
-                <Route path='/playlist-usuario/:id' element={ <PlaylistUsuario/> }/>
+                <Route path='/usuarios/:id' element={ <PlaylistUsuario/> }/>
             </Routes>
         </BrowserRouter>
     )
