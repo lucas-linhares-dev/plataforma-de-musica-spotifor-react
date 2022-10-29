@@ -16,6 +16,7 @@ function Musicas(){
     const [busca, setBusca] = useState('');
 
     const [musicaAdicionar, setMusicaAdicionar] = useState();
+    const [usuarioNovo, setUsuarioNovo] = useState();
 
     function atualizaBusca(e){
         let valorDigitado = e.target.value;
@@ -32,15 +33,41 @@ function Musicas(){
     const musicasFiltradas = musicas
         .filter((musica) => musica.nome.toLowerCase().includes(busca.toLowerCase()));
 
-
+    
 
     function adicionarMusica(e){
+
+        const musicasSalvas = usuarioLogado.playlists[0].musicas
+
+        musicasSalvas.push(musicaAdicionar)
+
         let idMusica = e.target.value;
 
         axios.get(`http://localhost:3001/musicas/${idMusica}`)
             .then((res) => setMusicaAdicionar(res.data))
 
-        axios.post(`http://localhost:3001/usuario/${usuarioLogado.id}?_embed=playlists/1/_embed=musicas`, musicaAdicionar)
+       axios.put(`http://localhost:3001/usuarios/${usuarioLogado.id}`, {
+           nome: usuarioLogado.nome,
+           idade: usuarioLogado.idade,
+           email: usuarioLogado.email,
+           senha: usuarioLogado.senha,
+           playlists: [
+               {
+                   id: usuarioLogado.playlists[0].id,
+                   nome: usuarioLogado.playlists[0].nome,
+                   capa: usuarioLogado.playlists[0].capa,
+                   musicas: musicasSalvas 
+               }
+           ]
+               
+        
+       })
+
+       axios.get(`http://localhost:3001/usuarios/${usuarioLogado.id}`)
+            .then( (res) => setUsuarioNovo(res.data))
+
+       localStorage.setItem('usuarioLogado', JSON.stringify(usuarioNovo))
+            
 
         alert(`Música "${musicaAdicionar.nome}" adicionada com sucesso`) // APARECENDO ALERT REPETIDO PQ A RES DA CHAMADA NAO CHEGOU AINDA
     }

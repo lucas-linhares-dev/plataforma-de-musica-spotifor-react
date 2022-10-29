@@ -121,7 +121,7 @@
       "idade": 22,
       "email": "lucas@gmail.com",
       "senha": "123",
-      "playlists":[
+      "playlists": [
         {
           "id": 1,
           "nome": "Playlist Lucas",
@@ -138,7 +138,8 @@
               "nome": "True Love",
               "artista": "Soja",
               "audio": "/audios/True Love - Soja.mp3"
-            }
+            },
+            null
           ]
         }
       ],
@@ -151,12 +152,10 @@
       "senha": "123",
       "playlists": [
         {
-        "id": 1,
-        "nome": "Playlist Mateus",
-        "capa": "/imagens/playlist-lofi.jpg",
-        "musicas": [
-
-          ]
+          "id": 1,
+          "nome": "Playlist Mateus",
+          "capa": "/imagens/playlist-lofi.jpg",
+          "musicas": []
         }
       ],
       "id": 2
@@ -260,33 +259,32 @@
       "audio": "./audios/Como Tudo Deve Ser - Charlie Brown.mp3"
     }
   ],
-
   "playlistsUsuarios": [
     {
-        "id": 1,
-        "idUsuario": 1,
-        "nome": "Playlist Lucas",
-        "capa": "/imagens/playlist-lofi.jpg",
-        "musicas": [
-          {
-            "id": 9,
-            "nome": "Rasta Courage",
-            "artista": "Soja",
-            "audio": "/audios/Rasta Courage - Soja.mp3"
-          },
-          {
-            "id": 10,
-            "nome": "True Love",
-            "artista": "Soja",
-            "audio": "/audios/True Love - Soja.mp3"
-          }
-        ]
+      "id": 1,
+      "idUsuario": 1,
+      "nome": "Playlist Lucas",
+      "capa": "/imagens/playlist-lofi.jpg",
+      "musicas": [
+        {
+          "id": 9,
+          "nome": "Rasta Courage",
+          "artista": "Soja",
+          "audio": "/audios/Rasta Courage - Soja.mp3"
+        },
+        {
+          "id": 10,
+          "nome": "True Love",
+          "artista": "Soja",
+          "audio": "/audios/True Love - Soja.mp3"
+        }
+      ]
     },
     {
       "id": 2,
       "idUsuario": 2,
       "nome": "Playlist Mateus",
-      "capa":"/imagens/playlist-mpb.jpg",
+      "capa": "/imagens/playlist-mpb.jpg",
       "musicas": [
         {
           "id": 11,
@@ -302,6 +300,5 @@
         }
       ]
     }
-
   ]
 }
