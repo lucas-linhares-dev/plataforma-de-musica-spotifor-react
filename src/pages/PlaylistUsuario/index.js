@@ -26,10 +26,30 @@ function Playlist(){
 
         axios.get(`http://localhost:3001/musicas/${idMusica}`)
             .then((res) => setMusicaRemover(res.data))
-        
-        axios.delete(`http://localhost:3001/usuario/${usuarioLogado.id}?_embed=playlists/1/_embed=musicas/${musicaRemover.id}`)
 
-        alert(`Música "${musicaRemover.nome}" removida com sucesso`) // APARECENDO ALERT REPETIDO PQ A RES DA CHAMADA NAO CHEGOU AINDA
+        if(musicaRemover != null){ // CORRIGIR ERRO DE ADICIONAR MUSICA NULL // MAS AINDA ESTÁ PRECISANDO DAR DOIS CLIQUES!!
+            
+            let musicasSalvas = usuarioLogado.playlists[0].musicas
+
+            musicasSalvas = musicasSalvas.filter((m) => m.id != idMusica)
+
+            usuarioLogado.playlists[0].musicas = musicasSalvas
+
+            localStorage.setItem('usuarioLogado', JSON.stringify(usuarioLogado))
+
+            axios.put(`http://localhost:3001/usuarios/${usuarioLogado.id}`, {
+                nome: usuarioLogado.nome,
+                idade: usuarioLogado.idade,
+                email: usuarioLogado.email,
+                senha: usuarioLogado.senha,
+                playlists: usuarioLogado.playlists
+            })
+
+
+            alert(`Música "${musicaRemover.nome}" removida com sucesso`)
+        }
+
+       e.preventDefault();
     }
  
 

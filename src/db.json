@@ -128,6 +128,60 @@
           "capa": "/imagens/playlist-lofi.jpg",
           "musicas": [
             {
+              "id": 3,
+              "nome": "Atlas",
+              "artista": "Lane 8",
+              "audio": "./audios/Lane 8 - Atlas.mp3"
+            },
+            {
+              "id": 2,
+              "nome": "Madness To Mayhem",
+              "artista": "Amtrac",
+              "audio": "./audios/Amtrac - Madness To Mayhem.mp3"
+            },
+            {
+              "id": 8,
+              "nome": "Never Lost",
+              "artista": "Amtrac",
+              "audio": "./audios/Never Lost - Amtrac.mp3"
+            }
+          ]
+        },
+        {
+          "nome": "Meu Rock",
+          "capa": "/imagens/playlist-lofi.jpg",
+          "musicas": []
+        },
+        {
+          "nome": "Meu pop",
+          "capa": "/imagens/playlist-lofi.jpg",
+          "musicas": []
+        },
+        {
+          "nome": "Meu reggae",
+          "capa": "/imagens/playlist-lofi.jpg",
+          "musicas": []
+        },
+        {
+          "nome": "Pop rock",
+          "capa": "/imagens/playlist-lofi.jpg",
+          "musicas": []
+        }
+      ],
+      "id": 1
+    },
+    {
+      "nome": "Mateus Souza Silva",
+      "idade": "18",
+      "email": "mateus@gmail.com",
+      "senha": "123",
+      "playlists": [
+        {
+          "id": 1,
+          "nome": "Playlist Mateus",
+          "capa": "/imagens/playlist-lofi.jpg",
+          "musicas": [
+            {
               "id": 9,
               "nome": "Rasta Courage",
               "artista": "Soja",
@@ -138,24 +192,8 @@
               "nome": "True Love",
               "artista": "Soja",
               "audio": "/audios/True Love - Soja.mp3"
-            },
-            null
+            }
           ]
-        }
-      ],
-      "id": 1
-    },
-    {
-      "nome": "Mateus Souza",
-      "idade": "18",
-      "email": "mateus@gmail.com",
-      "senha": "123",
-      "playlists": [
-        {
-          "id": 1,
-          "nome": "Playlist Mateus",
-          "capa": "/imagens/playlist-lofi.jpg",
-          "musicas": []
         }
       ],
       "id": 2

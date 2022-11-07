@@ -8,6 +8,7 @@ import "../../css/home.css"
 
 function Home() {
 
+
     let usuarioString = localStorage.getItem('usuarioLogado')
     let usuarioLogado = JSON.parse(usuarioString);
 
@@ -57,6 +58,7 @@ function Home() {
             { usuarioString && <section className="minhas-playlists">
                 <h2 className="title-minhas-playlists">Minhas Playlists</h2>
                 {minhasPlaylists}
+                <Link to="/criar-playlist"><button className="btn-criar-playlist">Criar playlist</button></Link>
             </section>}
             <section className = "playlists">
                 <h2 className="title-playlists">Playlists</h2>

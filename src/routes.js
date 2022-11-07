@@ -8,6 +8,7 @@ import Conta from './pages/Conta';
 import Login from './pages/Login';
 import Sair from './pages/Sair'
 import Musicas from './pages/Musicas'
+import CriarPlaylist from './pages/CriarPlaylist';
 import PlaylistUsuario from './pages/PlaylistUsuario'
 import { useEffect } from 'react';
 import axios from 'axios';
@@ -27,6 +28,7 @@ function RoutesApp(){
                 <Route path='/sair' element={ <Sair/> }/>
                 <Route path='/musicas' element={ <Musicas/> }/>
                 <Route path='/usuarios/:id' element={ <PlaylistUsuario/> }/>
+                <Route path='/criar-playlist' element={ <CriarPlaylist/> }/>
             </Routes>
         </BrowserRouter>
     )

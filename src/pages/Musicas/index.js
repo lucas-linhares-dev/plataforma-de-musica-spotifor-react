@@ -16,7 +16,6 @@ function Musicas(){
     const [busca, setBusca] = useState('');
 
     const [musicaAdicionar, setMusicaAdicionar] = useState();
-    const [usuarioNovo, setUsuarioNovo] = useState();
 
     function atualizaBusca(e){
         let valorDigitado = e.target.value;
@@ -37,39 +36,34 @@ function Musicas(){
 
     function adicionarMusica(e){
 
-        const musicasSalvas = usuarioLogado.playlists[0].musicas
-
-        musicasSalvas.push(musicaAdicionar)
-
         let idMusica = e.target.value;
 
         axios.get(`http://localhost:3001/musicas/${idMusica}`)
             .then((res) => setMusicaAdicionar(res.data))
 
-       axios.put(`http://localhost:3001/usuarios/${usuarioLogado.id}`, {
-           nome: usuarioLogado.nome,
-           idade: usuarioLogado.idade,
-           email: usuarioLogado.email,
-           senha: usuarioLogado.senha,
-           playlists: [
-               {
-                   id: usuarioLogado.playlists[0].id,
-                   nome: usuarioLogado.playlists[0].nome,
-                   capa: usuarioLogado.playlists[0].capa,
-                   musicas: musicasSalvas 
-               }
-           ]
-               
-        
-       })
-
-       axios.get(`http://localhost:3001/usuarios/${usuarioLogado.id}`)
-            .then( (res) => setUsuarioNovo(res.data))
-
-       localStorage.setItem('usuarioLogado', JSON.stringify(usuarioNovo))
+        if(musicaAdicionar != null){ // CORRIGIR ERRO DE ADICIONAR MUSICA NULL // MAS AINDA ESTÁ PRECISANDO DAR DOIS CLIQUES!!
             
+            let musicasSalvas = usuarioLogado.playlists[0].musicas
 
-        alert(`Música "${musicaAdicionar.nome}" adicionada com sucesso`) // APARECENDO ALERT REPETIDO PQ A RES DA CHAMADA NAO CHEGOU AINDA
+            musicasSalvas.push(musicaAdicionar)
+
+            usuarioLogado.playlists[0].musicas = musicasSalvas
+
+            localStorage.setItem('usuarioLogado', JSON.stringify(usuarioLogado))
+
+            axios.put(`http://localhost:3001/usuarios/${usuarioLogado.id}`, {
+                nome: usuarioLogado.nome,
+                idade: usuarioLogado.idade,
+                email: usuarioLogado.email,
+                senha: usuarioLogado.senha,
+                playlists: usuarioLogado.playlists
+            })
+
+
+            alert(`Música "${musicaAdicionar.nome}" adicionada com sucesso`)
+        }
+
+       e.preventDefault();
     }
         
         
