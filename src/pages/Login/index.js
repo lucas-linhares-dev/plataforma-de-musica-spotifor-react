@@ -32,14 +32,14 @@ function Login(){
             axios.get(`http://localhost:3001/usuarios?email=${email}`)
                 .then((res) => {
 
-                    const usuario = res.data[0];
+                    const usuario = res.data;
 
-                    if(usuario === undefined){
+                    if(usuario == undefined){
                         setError("Ops! O Email informado não está cadastrado.")
                         window.scrollTo(0,0)
                         return
                     }
-                    else if(usuario.senha !== senha){
+                    else if(usuario.senha != senha){
                         setError("Ops! A senha informada é inválida.")
                         window.scrollTo(0,0)
                         return

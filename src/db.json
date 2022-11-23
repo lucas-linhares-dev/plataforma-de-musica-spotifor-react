@@ -128,42 +128,35 @@
           "capa": "/imagens/playlist-lofi.jpg",
           "musicas": [
             {
-              "id": 3,
-              "nome": "Atlas",
-              "artista": "Lane 8",
-              "audio": "./audios/Lane 8 - Atlas.mp3"
-            },
-            {
               "id": 2,
               "nome": "Madness To Mayhem",
               "artista": "Amtrac",
               "audio": "./audios/Amtrac - Madness To Mayhem.mp3"
-            },
-            {
-              "id": 8,
-              "nome": "Never Lost",
-              "artista": "Amtrac",
-              "audio": "./audios/Never Lost - Amtrac.mp3"
             }
           ]
         },
         {
-          "nome": "Meu Rock",
+          "nome": "meu pop 2",
           "capa": "/imagens/playlist-lofi.jpg",
           "musicas": []
         },
         {
-          "nome": "Meu pop",
+          "nome": "Teste",
           "capa": "/imagens/playlist-lofi.jpg",
           "musicas": []
         },
         {
-          "nome": "Meu reggae",
+          "nome": "asdas",
           "capa": "/imagens/playlist-lofi.jpg",
           "musicas": []
         },
         {
-          "nome": "Pop rock",
+          "nome": "teste outro",
+          "capa": "/imagens/playlist-lofi.jpg",
+          "musicas": []
+        },
+        {
+          "nome": "rock 2",
           "capa": "/imagens/playlist-lofi.jpg",
           "musicas": []
         }

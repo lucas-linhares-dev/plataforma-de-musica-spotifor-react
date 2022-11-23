@@ -37,31 +37,34 @@ function Musicas(){
     function adicionarMusica(e){
 
         let idMusica = e.target.value;
+        console.log(idMusica);
 
         axios.get(`http://localhost:3001/musicas/${idMusica}`)
-            .then((res) => setMusicaAdicionar(res.data))
+            .then((res) => {
+                const dados = res.data
+                console.log("A: "+dados);
+                setMusicaAdicionar(dados);
 
-        if(musicaAdicionar != null){ // CORRIGIR ERRO DE ADICIONAR MUSICA NULL // MAS AINDA ESTÁ PRECISANDO DAR DOIS CLIQUES!!
             
-            let musicasSalvas = usuarioLogado.playlists[0].musicas
-
-            musicasSalvas.push(musicaAdicionar)
-
-            usuarioLogado.playlists[0].musicas = musicasSalvas
-
-            localStorage.setItem('usuarioLogado', JSON.stringify(usuarioLogado))
-
-            axios.put(`http://localhost:3001/usuarios/${usuarioLogado.id}`, {
-                nome: usuarioLogado.nome,
-                idade: usuarioLogado.idade,
-                email: usuarioLogado.email,
-                senha: usuarioLogado.senha,
-                playlists: usuarioLogado.playlists
+                    let musicasSalvas = usuarioLogado.playlists[0].musicas
+        
+                    musicasSalvas.push(dados)
+        
+                    usuarioLogado.playlists[0].musicas = musicasSalvas
+        
+                    localStorage.setItem('usuarioLogado', JSON.stringify(usuarioLogado))
+        
+                    axios.put(`http://localhost:3001/usuarios/${usuarioLogado.id}`, {
+                        nome: usuarioLogado.nome,
+                        idade: usuarioLogado.idade,
+                        email: usuarioLogado.email,
+                        senha: usuarioLogado.senha,
+                        playlists: usuarioLogado.playlists
+                    })
+        
+        
+                    alert(`Música "${dados.nome}" adicionada com sucesso`)
             })
-
-
-            alert(`Música "${musicaAdicionar.nome}" adicionada com sucesso`)
-        }
 
        e.preventDefault();
     }

@@ -24,7 +24,9 @@ function CriarPlaylist(){
         setNome(valorDigitado);
     }
 
-    function criar(){
+    function criar(e){
+        e.preventDefault();
+        
         if(nome == ""){
             setError("Informe o nome da playlist.")
             window.scrollTo(0,0)

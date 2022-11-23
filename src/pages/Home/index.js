@@ -12,7 +12,7 @@ function Home() {
     let usuarioString = localStorage.getItem('usuarioLogado')
     let usuarioLogado = JSON.parse(usuarioString);
 
-    const [playlists, setPlaylists] = useState([]);
+    const [playlists, setPlaylists] = useState();
     const [usuario, setUsuario] = useState();
 
     useEffect( () => {
