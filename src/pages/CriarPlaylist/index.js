@@ -45,7 +45,7 @@ function CriarPlaylist(){
 
             usuario.playlists = playlistsUsuario
            
-            axios.put(`http://localhost:3001/usuarios/${usuario.id}`, {nome: usuario.nome, idade: usuario.idade, email: usuario.email, senha: usuario.senha, playlists: playlistsUsuario})
+            axios.put(`http://localhost:3001/usuarios/${usuario._id}`, {nome: usuario.nome, idade: usuario.idade, email: usuario.email, senha: usuario.senha, playlists: playlistsUsuario})
 
             localStorage.setItem('usuarioLogado', JSON.stringify(usuario));
             alert(`Playlist "${nome}" criada com sucesso`)

@@ -67,7 +67,7 @@ function Conta(){
             usuario.senha = senha;
             usuario.playlists = usuario.playlists
 
-            axios.put(`http://localhost:3001/usuarios/${usuario.id}`, {nome: nome, idade: idade, email: email, senha: senha, playlists: usuario.playlists})
+            axios.put(`http://localhost:3001/usuarios/${usuario._id}`, {nome: nome, idade: idade, email: email, senha: senha, playlists: usuario.playlists})
 
             localStorage.setItem('usuarioLogado', JSON.stringify(usuario));
             alert("Conta alterada com sucesso.")

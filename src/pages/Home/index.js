@@ -22,7 +22,7 @@ function Home() {
 
     useEffect( () => {
         if(usuarioLogado != null){
-            axios.get(`http://localhost:3001/usuarios/${usuarioLogado.id}`) // depois pegar usuario dinamicamente
+            axios.get(`http://localhost:3001/usuarios/${usuarioLogado._id}`) // depois pegar usuario dinamicamente
             .then( (resposta) => setUsuario(resposta.data)) 
         }
     },[])
@@ -31,7 +31,7 @@ function Home() {
     const minhasPlaylists = usuario?.playlists?.map( (playlist) => {  // to = 'playlist/{playlista.id}'
         return (
             <div className="card">
-                <Link to={`/usuarios/${usuarioLogado.id}`} className="link-imagem-playlist"> 
+                <Link to={`/usuarios/${usuarioLogado._id}`} className="link-imagem-playlist"> 
                     <img src={playlist.capa} className = "imagem-playlist"></img>
                 </Link>
                 <h3 className="nome-playlist">{playlist.nome}</h3>
@@ -42,7 +42,7 @@ function Home() {
     const playlistsAbertas = playlists?.map( (playlist) => {  // to = 'playlist/{playlista.id}'
         return (
             <div className="card">
-                <Link to={`/playlist/${playlist.id}`} className="link-imagem-playlist"> 
+                <Link to={`/playlist/${playlist._id}`} className="link-imagem-playlist"> 
                     <img src={playlist.capa} className = "imagem-playlist"></img>
                 </Link>
                 <h3 className="nome-playlist">{playlist.nome}</h3>

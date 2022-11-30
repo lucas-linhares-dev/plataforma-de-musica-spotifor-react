@@ -37,7 +37,6 @@ function Musicas(){
     function adicionarMusica(e){
 
         let idMusica = e.target.value;
-        console.log(idMusica);
 
         axios.get(`http://localhost:3001/musicas/${idMusica}`)
             .then((res) => {
@@ -54,7 +53,7 @@ function Musicas(){
         
                     localStorage.setItem('usuarioLogado', JSON.stringify(usuarioLogado))
         
-                    axios.put(`http://localhost:3001/usuarios/${usuarioLogado.id}`, {
+                    axios.put(`http://localhost:3001/usuarios/${usuarioLogado._id}`, {
                         nome: usuarioLogado.nome,
                         idade: usuarioLogado.idade,
                         email: usuarioLogado.email,
@@ -77,7 +76,7 @@ function Musicas(){
                     <h4 className='nome'>{m.nome}</h4>
                     <p className='artista'>{m.artista}</p>
                     <audio src={m.audio} className='audio' controls></audio>
-                    {usuarioString && <button className='btn-adicionar' onClick={adicionarMusica} value={m.id}>+ Minha playlist</button>}
+                    {usuarioString && <button className='btn-adicionar' onClick={adicionarMusica} value={m._id}>+ Minha playlist</button>}
                 </li>
             </div>
         )

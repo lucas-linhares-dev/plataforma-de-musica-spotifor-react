@@ -17,7 +17,7 @@ function Playlist(){
     const [musicaRemover, setMusicaRemover] = useState();
 
     useEffect( () => {  
-        axios.get(`http://localhost:3001/usuarios/${usuarioLogado.id}`)
+        axios.get(`http://localhost:3001/usuarios/${usuarioLogado._id}`)
             .then((resposta) => setUsuario(resposta.data))
     },[])
 
@@ -31,13 +31,13 @@ function Playlist(){
             
             let musicasSalvas = usuarioLogado.playlists[0].musicas
 
-            musicasSalvas = musicasSalvas.filter((m) => m.id != idMusica)
+            musicasSalvas = musicasSalvas.filter((m) => m._id != idMusica)
 
             usuarioLogado.playlists[0].musicas = musicasSalvas
 
             localStorage.setItem('usuarioLogado', JSON.stringify(usuarioLogado))
 
-            axios.put(`http://localhost:3001/usuarios/${usuarioLogado.id}`, {
+            axios.put(`http://localhost:3001/usuarios/${usuarioLogado._id}`, {
                 nome: usuarioLogado.nome,
                 idade: usuarioLogado.idade,
                 email: usuarioLogado.email,
