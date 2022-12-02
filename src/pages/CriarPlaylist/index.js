@@ -50,7 +50,7 @@ function CriarPlaylist(){
             localStorage.setItem('usuarioLogado', JSON.stringify(usuario));
             alert(`Playlist "${nome}" criada com sucesso`)
 
-            window.scrollTo(0,0)
+            window.location.href = 'http://localhost:3000'
 
         }
             

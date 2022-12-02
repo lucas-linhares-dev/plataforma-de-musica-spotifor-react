@@ -41,7 +41,7 @@ function Musicas(){
         axios.get(`http://localhost:3001/musicas/${idMusica}`)
             .then((res) => {
                 const dados = res.data
-                console.log("A: "+dados);
+                
                 setMusicaAdicionar(dados);
 
             

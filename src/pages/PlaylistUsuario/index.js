@@ -25,29 +25,31 @@ function Playlist(){
         let idMusica = e.target.value;
 
         axios.get(`http://localhost:3001/musicas/${idMusica}`)
-            .then((res) => setMusicaRemover(res.data))
+            .then((res) => {
+                const dados = res.data
 
-        if(musicaRemover != null){ // CORRIGIR ERRO DE ADICIONAR MUSICA NULL // MAS AINDA ESTÁ PRECISANDO DAR DOIS CLIQUES!!
-            
-            let musicasSalvas = usuarioLogado.playlists[0].musicas
+                setMusicaRemover(dados)
 
-            musicasSalvas = musicasSalvas.filter((m) => m._id != idMusica)
+                let musicasSalvas = usuarioLogado.playlists[0].musicas
 
-            usuarioLogado.playlists[0].musicas = musicasSalvas
+                musicasSalvas = musicasSalvas.filter((m) => m._id != idMusica)
 
-            localStorage.setItem('usuarioLogado', JSON.stringify(usuarioLogado))
+                usuarioLogado.playlists[0].musicas = musicasSalvas
 
-            axios.put(`http://localhost:3001/usuarios/${usuarioLogado._id}`, {
-                nome: usuarioLogado.nome,
-                idade: usuarioLogado.idade,
-                email: usuarioLogado.email,
-                senha: usuarioLogado.senha,
-                playlists: usuarioLogado.playlists
+                localStorage.setItem('usuarioLogado', JSON.stringify(usuarioLogado))
+
+                axios.put(`http://localhost:3001/usuarios/${usuarioLogado._id}`, {
+                    nome: usuarioLogado.nome,
+                    idade: usuarioLogado.idade,
+                    email: usuarioLogado.email,
+                    senha: usuarioLogado.senha,
+                    playlists: usuarioLogado.playlists
+                })
+
+
+                alert(`Música "${dados.nome}" removida com sucesso`)
+                window.location.reload()
             })
-
-
-            alert(`Música "${musicaRemover.nome}" removida com sucesso`)
-        }
 
        e.preventDefault();
     }
@@ -60,7 +62,7 @@ function Playlist(){
                     <h4 className='nome'>{m.nome}</h4>
                     <p className='artista'>{m.artista}</p>
                     <audio src={m.audio} className='audio' controls></audio>
-                    <button className='btn-excluir' value={m.id} onClick={removerMusica} >Excluir</button>
+                    <button className='btn-excluir' value={m._id} onClick={removerMusica} >Excluir</button>
                 </li>
             </div>
         )
