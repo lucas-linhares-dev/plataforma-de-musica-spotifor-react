@@ -16,8 +16,6 @@ function CriarPlaylist(){
     const [capa, setCapa] = useState("/imagens/playlist-lofi.jpg")
     
 
-  
-   
 
     function atualizaNome(e){
         let valorDigitado = e.target.value;
